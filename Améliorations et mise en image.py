@@ -215,10 +215,9 @@ def champ_de_vision(start, board, limit):
 
 def superpose(board, points):
     '''Permet de superposer sur une matrice tous les points vus d'une droite'''
-    for (x, fog) in points:
+    for x in points:
         i, j = x
-        # Idem que pour la fonction précédente
-        board[j][i] = fog
+        board[j][i] = 1
     return board
 
 
@@ -277,5 +276,7 @@ put_wall("r", 3, 12, 18, "glass", M)
 L = champ_de_vision(start, M, limite)
 superpose_champ_de_vison(M, L)
 M[p][h] = "@"
+
+#La représentation en image est prévue pour une matrice 30x30
 display_image(M)
 display_board(M)
